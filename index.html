@@ -13,9 +13,6 @@
     </script>
     <script>
       window.onload = () => {
-        const button = document.querySelector('button[data-action="change"]');
-        button.innerText = "﹖";
-
         let places = staticLoadPlaces();
         renderPlaces(places);
       };
@@ -23,10 +20,10 @@
       function staticLoadPlaces() {
         return [
           {
-            name: "Pokèmon",
+            name: "NE Church at 7th Street",
             location: {
-              lat: 45.563210,
-              lng: -122.658722,
+              lat: 45.563420,
+              lng: -122.658682,
             },
           },
         ];
@@ -34,23 +31,10 @@
 
       var models = [
         {
-          url: "./assets/magnemite/scene.gltf",
-          scale: "0.5 0.5 0.5",
-          info: "Magnemite, Lv. 5, HP 10/10",
-          rotation: "0 180 0",
-        },
-        {
-          url: "./assets/articuno/scene.gltf",
-          scale: "0.2 0.2 0.2",
-          rotation: "0 180 0",
-          info: "Articuno, Lv. 80, HP 100/100",
-        },
-        {
-          url: "./assets/dragonite/scene.gltf",
-          scale: "0.08 0.08 0.08",
-          rotation: "0 180 0",
-          info: "Dragonite, Lv. 99, HP 150/150",
-        },
+          value: "NE Church at 7th Street",
+          scale: "120 120 120",
+          lookat: "[gps-camera]"
+        }
       ];
 
       var modelIndex = 0;
@@ -59,18 +43,16 @@
           entity.setAttribute("scale", model.scale);
         }
 
-        if (model.rotation) {
-          entity.setAttribute("rotation", model.rotation);
+        if (model.value) {
+          entity.setAttribute("value", model.value);
         }
 
-        if (model.position) {
-          entity.setAttribute("position", model.position);
+        if (model.lookoat) {
+          entity.setAttribute("look-at", model.lookoat);
         }
 
-        entity.setAttribute("gltf-model", model.url);
-
-        const div = document.querySelector(".instructions");
-        div.innerText = model.info;
+        // const div = document.querySelector(".instructions");
+        // div.innerText = model.info;
       };
 
       function renderPlaces(places) {
@@ -80,7 +62,7 @@
           let latitude = place.location.lat;
           let longitude = place.location.lng;
 
-          let model = document.createElement("a-entity");
+          let model = document.createElement("a-text");
           model.setAttribute(
             "gps-entity-place",
             `latitude: ${latitude}; longitude: ${longitude};`
@@ -116,8 +98,5 @@
     >
       <a-camera gps-camera rotation-reader></a-camera>
     </a-scene>
-    <div class="centered">
-      <button data-action="change"></button>
-    </div>
   </body>
 </html>
