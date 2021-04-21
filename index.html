@@ -38,24 +38,18 @@
           scale: "0.5 0.5 0.5",
           info: "Magnemite, Lv. 5, HP 10/10",
           rotation: "0 180 0",
-          value: "Magnemite text",
-          lookAt: "[gps-camera]"
         },
         {
           url: "./assets/articuno/scene.gltf",
           scale: "0.2 0.2 0.2",
           rotation: "0 180 0",
           info: "Articuno, Lv. 80, HP 100/100",
-          value: "Articuno text",
-          lookAt: "[gps-camera]"
         },
         {
           url: "./assets/dragonite/scene.gltf",
           scale: "0.08 0.08 0.08",
           rotation: "0 180 0",
           info: "Dragonite, Lv. 99, HP 150/150",
-          value: "Dragonite text",
-          lookAt: "[gps-camera]"
         },
       ];
 
@@ -79,16 +73,6 @@
         div.innerText = model.info;
       };
 
-      var setText = function (model, entity) {
-        if (model.value) {
-          entity.setAttribute("value", model.value);
-        }
-
-        if (model.lookAt) {
-          entity.setAttribute("look-at", model.lookAt);
-        }
-      }
-
       function renderPlaces(places) {
         let scene = document.querySelector("a-scene");
 
@@ -97,17 +81,11 @@
           let longitude = place.location.lng;
 
           let model = document.createElement("a-entity");
-          let newText = document.createElement("a-text");
           model.setAttribute(
             "gps-entity-place",
             `latitude: ${latitude}; longitude: ${longitude};`
           );
-          text.setAttribute(
-            "gps-entity-place",
-            `latitude: ${latitude}; longitude: ${longitude};`
-          );
 
-          setText(models[modelIndex], text);
           setModel(models[modelIndex], model);
 
           model.setAttribute("animation-mixer", "");
