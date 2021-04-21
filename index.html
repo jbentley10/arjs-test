@@ -25,7 +25,7 @@
           {
             name: "Pokèmon",
             location: {
-              lat: 45.563210,
+              lat: 45.56321,
               lng: -122.658722,
             },
           },
@@ -114,6 +114,12 @@
       embedded
       arjs="sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;"
     >
+      <a-text
+        value="This content will always face you."
+        look-at="[gps-camera]"
+        scale="120 120 120"
+        gps-entity-place="latitude: 45.563210; longitude: -122.658722;"
+      ></a-text>
       <a-camera gps-camera rotation-reader></a-camera>
     </a-scene>
     <div class="centered">
