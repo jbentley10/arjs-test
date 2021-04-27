@@ -142,17 +142,14 @@
       arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
       renderer="antialias: true; alpha: true"
     >
-      <a-camera gps-projected-camera rotation-reader></a-camera>
-      <!-- <a-text
+      
+      <a-text
         value="This content will always face you."
         look-at="[gps-camera]"
         scale="5 5 5"
         gps-entity-place="latitude: 45.563210; longitude: -122.658722;"
-      ></a-text> -->
-      <a-marker type="barcode" value="51" smooth="true" smoothCount="10" smoothTolerance="0.005" smoothThreshold="1" gps-entity-place="latitude: 45.563210; longitude: -122.658722;">
-        <a-plane rotation="-90 0 0" position="0 0 0" material="opacity: 0.7" color="red"></a-plane>
-        <a-text mixin="text" position="0 1 0" wrap-count="15" rotation="-90 0 0" color="blue">Hi! I'm a text thing.</a-text>
-    </a-marker>
+      ></a-text>
+      <a-camera gps-projected-camera rotation-reader></a-camera>
     </a-scene>
   </body>
 </html>
