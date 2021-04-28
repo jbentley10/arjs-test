@@ -142,13 +142,14 @@
       arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
       renderer="antialias: true; alpha: true"
     >
-      
-      <a-text
-        value="This content will always face you."
-        look-at="[gps-camera]"
-        scale="5 5 5"
-        gps-entity-place="latitude: 45.563210; longitude: -122.658722;"
-      ></a-text>
+      <a-plane>
+        <a-text
+          value="This content will always face you."
+          look-at="[gps-camera]"
+          scale="5 5 5"
+          gps-entity-place="latitude: 45.563210; longitude: -122.658722;"
+        ></a-text>
+      </a-plane>
       <a-camera gps-projected-camera rotation-reader></a-camera>
     </a-scene>
   </body>
